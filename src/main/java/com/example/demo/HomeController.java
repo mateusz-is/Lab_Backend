@@ -13,12 +13,10 @@ public class HomeController {
         return "Hello World!";
     }
 
-
     @RequestMapping("/example")
     public String custom() {
         return "custom";
     }
-
 
 //    @RequestMapping("/test/{name}-{age}")
 //    @ResponseBody
