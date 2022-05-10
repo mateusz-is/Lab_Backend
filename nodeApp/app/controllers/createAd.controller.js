@@ -20,7 +20,7 @@ exports.create = (req, res) => {
     published: req.body.published ? req.body.published : false
   });
 
-
+  
   advertisment
     .save(advertisment)
     .then(data => {
