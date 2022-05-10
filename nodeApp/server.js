@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8021"
 };
 
 app.use(cors(corsOptions));
@@ -33,15 +33,11 @@ db.mongoose
     process.exit();
   });
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Test" });
-});
 
 require("./app/routes/app.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.NODE_DOCKER_PORT || 8080;
+const PORT = process.env.NODE_DOCKER_PORT || 8020;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

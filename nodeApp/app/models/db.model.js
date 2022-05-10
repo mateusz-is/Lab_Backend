@@ -3,6 +3,11 @@ module.exports = mongoose => {
       {
         title: String,
         description: String,
+        author: String,
+        price: String,
+        phone: String,
+        mail: String,
+        category: String,
         published: Boolean
       },
       { timestamps: true }
@@ -14,6 +19,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const Tutorial = mongoose.model("tutorial", schema);
-    return Tutorial;
+    const Ad = mongoose.model("ad", schema);
+    return Ad;
   };
