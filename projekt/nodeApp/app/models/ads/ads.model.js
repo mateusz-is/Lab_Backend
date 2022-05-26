@@ -7,7 +7,7 @@ module.exports = mongoose => {
         price: String,
         phone: String,
         mail: String,
-        category: String,
+        categoryID: Number,
         published: Boolean
       },
       { timestamps: true }

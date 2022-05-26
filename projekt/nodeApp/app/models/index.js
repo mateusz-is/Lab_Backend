@@ -6,6 +6,7 @@ mongoose.Promise = global.Promise;
 const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
-db.ad = require("./db.model.js")(mongoose);
+db.ad = require("./ads/ads.model.js")(mongoose);
+db.cat = require("./categories/categories.model.js")(mongoose);
 
 module.exports = db;
