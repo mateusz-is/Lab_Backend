@@ -3,10 +3,8 @@ module.exports = mongoose => {
       {
         title: String,
         description: String,
-        author: String,
-        price: String,
-        phone: String,
-        mail: String,
+        price: Number,
+        authorID: Number,
         categoryID: Number,
         published: Boolean
       },

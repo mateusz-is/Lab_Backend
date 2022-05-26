@@ -12,11 +12,9 @@ exports.create = (req, res) => {
   const advertisment = new Ad({
     title: req.body.title,
     description: req.body.description,
-    author: req.body.author,
+    authorID: req.body.authorID,
     price: req.body.price,
-    phone: req.body.phone,
-    mail: req.body.mail,
-    category: req.body.category,
+    categoryID: req.body.categoryID,
     published: req.body.published ? req.body.published : false
   });
 

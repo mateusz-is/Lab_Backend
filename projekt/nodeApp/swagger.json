@@ -1,0 +1,150 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Tablica ogłoszeń",
+        "description": "Dokumentacja do projektu",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "54.37.138.253:8020",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/ads": {
+            "get": {
+                "tags": [
+                    "Ads"
+                ],
+                "summary": "Get all Ads from db",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Ads"
+                        }
+                    }
+                }
+            }
+        },
+        "/ad/{id}": {
+            "get": {
+                "tags": [
+                    "Ads"
+                ],
+                "description": "Sample id: 627acfe7bb55e506ab14f59a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ad Id",
+                        "type": "Number"
+                    }
+                ],
+                "summary": "Get Ad by Id",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Ads"
+                        }
+                    }
+                }
+            }
+        },
+        "/ads/published": {
+            "get": {
+                "tags": [
+                    "Ads"
+                ],
+                "summary": "Get all Publishd Ads from db",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Ads"
+                        }
+                    }
+                }
+            }
+        },
+        "/ad/create": {
+            "post": {
+                "tags": [
+                    "Ads"
+                ],
+                "description": "Create new Ad",
+                "parameters": [
+                    {
+                        "name": "New Ad",
+                        "in": "body",
+                        "description": "Create your first ad",
+                        "schema": {
+                            "$ref": "#/definitions/Ads"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Ad is created",
+                        "schema": {
+                            "$ref": "#/definitions/Ads"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Ads": {
+            "required": [
+                "name",
+                "_id",
+                "companies"
+            ],
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "authorID": {
+                    "type": "number"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "categoryID": {
+                    "type": "number"
+                },
+                "published": {
+                    "type": "boolean"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                }
+            }
+        }
+    }
+}

@@ -15,7 +15,7 @@ module.exports = app => {
   router.post("/ad/create", ad.create);
   router.get("/ads", getAll.findAll);
   router.get("/ad/:id", getdOne.findOne);
-  router.get("/published", getPublished.findPublished);
+  router.get("/ads/published", getPublished.findPublished);
   router.post("/category/create", category.create)
   router.get(`/category/all`, getAllCategory.findAll)
 
