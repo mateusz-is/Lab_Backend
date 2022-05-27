@@ -78,6 +78,78 @@
                 }
             }
         },
+        "/ads/category/{id}": {
+            "get": {
+                "tags": [
+                    "Ads"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Category Id",
+                        "type": "Number"
+                    }
+                ],
+                "summary": "Get all Ads from category",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Ads"
+                        }
+                    }
+                }
+            }
+        },
+        "/ads/author/{id}": {
+            "get": {
+                "tags": [
+                    "Ads"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Author Id",
+                        "type": "Number"
+                    }
+                ],
+                "summary": "Get all Ads from author ID",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Ads"
+                        }
+                    }
+                }
+            }
+        },
+        "/ads/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Ads"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ad Id",
+                        "type": "Number"
+                    }
+                ],
+                "summary": "Delete ad by ID",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Ads"
+                        }
+                    }
+                }
+            }
+        },
         "/ad/create": {
             "post": {
                 "tags": [
@@ -106,14 +178,83 @@
                     }
                 }
             }
+        },
+        "/category/all": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get all Categories",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        }
+                    }
+                }
+            }
+        },
+        "/category/create": {
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "description": "Create new Category",
+                "parameters": [
+                    {
+                        "name": "New category",
+                        "in": "body",
+                        "description": "Create your Category",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Category is created",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        }
+                    }
+                }
+            }
+        },
+        "/category/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Category Id",
+                        "type": "Number"
+                    }
+                ],
+                "summary": "Delete category by ID",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        }
+                    }
+                }
+            }
         }
+
     },
     "definitions": {
         "Ads": {
             "required": [
-                "name",
-                "_id",
-                "companies"
+                "title",
+                "_id"
             ],
             "properties": {
                 "title": {
@@ -139,6 +280,24 @@
                 },
                 "updatedAt": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                }
+            }
+        },
+        "Category": {
+            "required": [
+                "name",
+                "_id"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "published": {
+                    "type": "boolean"
                 },
                 "id": {
                     "type": "integer",

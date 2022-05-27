@@ -1,13 +1,12 @@
+const ObjectId  = require("bson");
 const db = require("../../models");
-const Ad = db.ad;
+const Cat = db.cat;
 
-exports.findAll = (req, res) => {
-    // const title = req.query.title;
-    // var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
 
-    const adId = req.query.id
+exports.deleteCat = (req, res) => {
+    const id = req.query.id
 
-    Ad.find({ id: adId })
+    Cat.deleteOne({id: ObjectId(id)})
         .then(data => {
             res.send(data);
         })
@@ -18,3 +17,4 @@ exports.findAll = (req, res) => {
             });
         });
 };
+
