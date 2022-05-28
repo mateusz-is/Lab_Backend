@@ -12,8 +12,6 @@ module.exports = app => {
   const deleteCat = require("../controllers/categories/deleteCategory.controller.js")
 
 
-  
-
   app.get("/", (req, res) => {
     res.json({ message: "Home Page" });
   });

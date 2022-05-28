@@ -1,30 +1,31 @@
 Aplikacja będzie prostą tablicą ogłoszeń, api zostanie przygotowane w NodeJs, oraz front w React. Backend z frontem będzie komunikował się po Api.
-1. Wdrożenie (POST) endpointu do logowania uzytkowników 
-2. Wdrożenie poziomów uprawnień (Administrator, użytkownik).
-3. Wdrożenie autentykacji na podstawie tokenu. 
-(Gotowe) 4. Wdrożenie endpointu (POST) do dodawania ogłoszeń. 
-5. Wdrożenie endpointu (GET) do wyświetlania ogłoszeń.
+1. Wdrożenie (POST) endpointu do rejestracji uzytkowników 
+2. Wdrożenie (POST) endpointu do logowania uzytkowników 
+3. Wdrożenie poziomów uprawnień (Administrator, użytkownik).
+4. Wdrożenie autentykacji na podstawie tokenu. 
+(Gotowe) 5. Wdrożenie endpointu (POST) do dodawania ogłoszeń. 
+6. Wdrożenie endpointu (GET) do wyświetlania ogłoszeń.
     (Gotowe) a. Wyświetlanie wszystkich ogłoszeń.
     (Gotowe) b. Wyświetlanie wybranego ogłoszenia po id
     (Gotowe) c. Wyświetlanie wszystkich opublikowanych ogłoszeń
-    d. Wyświetlanie opublikowanych ogłoszeń po kategorii
-    e. Wyświetlanie ogłoszeń po id autora
+    (Gotowe) d. Wyświetlanie wszystkich ogłoszeń po kategorii
+    (Gotowe) e. Wyświetlanie ogłoszeń po id autora
     c. Wdrożenie stronnicowania
-6. Wdrożenie endpointu (DELETE) do usuwania wpisów
-(Gotowe) 7. Wdrozenie endpointu (GET) do wyświetlania kategorii
+(Gotowe) 7. Wdrożenie endpointu (DELETE) do usuwania wpisów
+(Gotowe) 8. Wdrozenie endpointu (GET) do wyświetlania kategorii
     (Gotowe) b. wyświetlanie tylko opublikowanych kategorii
-8. Wdrożenie endpoint (DELETE) do usuwania kategorii
-9. Wdrożenie endpointu (PUT) do edycji ogloszeń
+9. Wdrożenie endpoint (DELETE) do usuwania kategorii
+10. Wdrożenie endpointu (PUT) do edycji ogloszeń
     a. Edycja ogłoszeń tylko po id autora
     b. Edycja wszystkich wpisów
-10. Wdrożenie endpointu (POST) do edycji kategorii
-11. Wdrożenie endpointu (POST) do formularza kontaktowego 
-12. Wdrożenie endpointu (GET) do wyświetlania przesłanych zgłoszeń przez formularz
+11. Wdrożenie endpointu (POST) do edycji kategorii
+12. Wdrożenie endpointu (POST) do formularza kontaktowego 
+13. Wdrożenie endpointu (GET) do wyświetlania przesłanych zgłoszeń przez formularz
     a. Wyświetlanie zgłoszeń tylko dla id użytkownika, do którego należy ogłoszenie.
-13. Wdrożenie endpointu (GET) do wyświetlania listy wszystkich użytkowników 
-14. Wdrożenie endpointu (DELTE) do usuwania uzytkonków.
-15. Stworzenie dokumentacji do api wykorzystując do tego program swagger 
-16. Przygotowanie środowiska uruchomieniowego w Docker. Przygotowanie pliku docker-compose i DockerFile
+14. Wdrożenie endpointu (GET) do wyświetlania listy wszystkich użytkowników 
+15. Wdrożenie endpointu (DELTE) do usuwania uzytkonków.
+(W trakcie) 16. Stworzenie dokumentacji do api wykorzystując do tego program swagger 
+17. Przygotowanie środowiska uruchomieniowego w Docker. Przygotowanie pliku docker-compose i DockerFile
 
 Tabele w bazie danych:
     Ogloszenia, 

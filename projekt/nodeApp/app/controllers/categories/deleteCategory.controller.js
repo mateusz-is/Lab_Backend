@@ -1,12 +1,12 @@
-const ObjectId  = require("bson");
+var mongodb = require('mongodb');
 const db = require("../../models");
 const Cat = db.cat;
 
 
 exports.deleteCat = (req, res) => {
-    const id = req.query.id
+    const id = req.params.id
 
-    Cat.deleteOne({id: ObjectId(id)})
+    Cat.deleteOne({_id: new mongodb.ObjectID(id.toString())})
         .then(data => {
             res.send(data);
         })
