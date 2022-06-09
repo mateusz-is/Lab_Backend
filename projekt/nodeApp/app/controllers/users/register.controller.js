@@ -1,4 +1,5 @@
 const db = require("../../models");
+const bcrypt = require('bcrypt');
 const user = db.user;
 
 
@@ -9,12 +10,12 @@ exports.registerUser = async (req, res) => {
         return;
     }
 
-    let isUserExist = await user.findOne({ email: req.body.email });
+    let newUser = await user.findOne({ email: req.body.email });
 
-    if (isUserExist) {
+    if (newUser) {
         return res.status(400).send('That user already exisits!');
     } else {
-        isUserExist = new user({
+        newUser = new user({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
@@ -22,7 +23,9 @@ exports.registerUser = async (req, res) => {
             permission: req.body.permission,
             isActive: req.body.isActive
         });
-        await isUserExist.save();
-        res.send(isUserExist);
+        const salt = await bcrypt.genSalt(10);
+        newUser.password = await bcrypt.hash(newUser.password, salt);
+        await newUser.save();
+        res.send(newUser);
     }
 };
