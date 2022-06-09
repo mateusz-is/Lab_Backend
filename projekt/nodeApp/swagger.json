@@ -247,6 +247,35 @@
                     }
                 }
             }
+        },
+        "/user/register": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "Register new account",
+                "parameters": [
+                    {
+                        "name": "New category",
+                        "in": "body",
+                        "description": "Create new account",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New user is created",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            }
         }
 
     },
@@ -297,6 +326,39 @@
                     "type": "string"
                 },
                 "published": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                }
+            }
+        },
+        "Users": {
+            "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "password",
+                "isActive"
+            ],
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "permission": {
+                    "type": "string"
+                },
+                "isActive": {
                     "type": "boolean"
                 },
                 "id": {

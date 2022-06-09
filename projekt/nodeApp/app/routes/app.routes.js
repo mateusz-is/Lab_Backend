@@ -10,7 +10,7 @@ module.exports = app => {
   const findByAuthor = require("../controllers/ads/findByAuthor.controller.js")
   const deleteAd = require("../controllers/ads/deleteAd.controller.js")
   const deleteCat = require("../controllers/categories/deleteCategory.controller.js")
-
+  const registerUser = require('../controllers/users/register.controller.js');
 
   app.get("/", (req, res) => {
     res.json({ message: "Home Page" });
@@ -26,6 +26,7 @@ module.exports = app => {
   router.get("/ads/published", getPublished.findPublished);
   router.post("/category/create", category.create)
   router.get(`/category/all`, getAllCategory.findAll)
+  router.post("/user/register", registerUser.registerUser)
   
 
   app.use("/api", router);
