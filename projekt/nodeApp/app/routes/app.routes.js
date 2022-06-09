@@ -1,3 +1,5 @@
+const config = require('config');
+const auth = require("../controllers/auth/auth.controller.js");
 module.exports = app => {
   var router = require("express").Router();
   const ad = require("../controllers/ads/createAd.controller.js");
@@ -12,7 +14,7 @@ module.exports = app => {
   const deleteCat = require("../controllers/categories/deleteCategory.controller.js")
   const registerUser = require('../controllers/users/register.controller.js');
   const authUser = require('../controllers/users/auth.controller.js');
-  const config = require('config');
+ 
 
   if (!config.get('PrivateKey')) {
     console.error('FATAL ERROR: PrivateKey is not defined.');
@@ -23,9 +25,9 @@ module.exports = app => {
     res.json({ message: "Home Page" });
   });
 
-  router.post("/ad/create", ad.create);
-  router.get("/ads", getAll.findAll);
-  router.get("/ads/category/:id", findByCat.findByCategory);
+  router.post("/ad/create", auth, ad.create);
+  router.get("/ads", auth, getAll.findAll);
+  router.get("/ads/category/:id", auth, findByCat.findByCategory);
   router.get("/ads/author/:id", findByAuthor.findByAuthor);
   router.delete("/ads/delete/:id", deleteAd.deleteAd);
   router.delete("/category/delete/:id", deleteCat.deleteCat);

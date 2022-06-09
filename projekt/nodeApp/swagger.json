@@ -20,8 +20,21 @@
     "produces": [
         "application/json"
     ],
+    "securityDefinitions": {
+        "bearerAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "scheme": "bearer",
+            "in": "header"
+        }
+    },
     "paths": {
         "/ads": {
+            "post":{
+                "security": {
+                    "BearerAuth": []
+                }
+            },
             "get": {
                 "tags": [
                     "Ads"
@@ -382,6 +395,9 @@
                     "type": "string"
                 },
                 "password": {
+                    "type": "string"
+                },
+                "token": {
                     "type": "string"
                 },
                 "permission": {

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const db = require("../../models");
 const bcrypt = require('bcrypt');
-const config = require('config');
+
 const user = db.user;
 
 
@@ -22,9 +22,11 @@ exports.authUser = async (req, res) => {
     }
 
     let userDetail = await user.findOne({ email: req.body.email }, { _id: 0, firstName: 1, lastName: 1, email: 1, permission: 1, isActive: 1 });
-    const token = jwt.sign({ _id: user._id }, 'PrivateKey');
+    const token = jwt.sign({ _id: user._id }, 'PrivateKey', {
+        expiresIn: "2h",
+    });
+    userLogin.token = token;
 
-
-    res.send([{ userDetail, token: token  }]);
+    res.send([{ userDetail, token: token }]);
 
 };

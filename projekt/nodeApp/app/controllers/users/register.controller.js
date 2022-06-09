@@ -23,12 +23,15 @@ exports.registerUser = async (req, res) => {
             email: req.body.email,
             password: req.body.password,
             permission: req.body.permission,
+            token: req.body.token,
             isActive: req.body.isActive
         });
         const salt = await bcrypt.genSalt(10);
         newUser.password = await bcrypt.hash(newUser.password, salt);
         await newUser.save();
-        const token = jwt.sign({ _id: user._id }, config.get('PrivateKey'));
+        const token = jwt.sign({ _id: user._id }, config.get('PrivateKey'), {
+            expiresIn: "2h",
+        });
         res.header('x-auth-token', token).send(newUser);
     }
 };

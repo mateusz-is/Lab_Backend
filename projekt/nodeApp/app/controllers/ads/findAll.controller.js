@@ -1,7 +1,8 @@
 const db = require("../../models");
+
 const Ad = db.ad;
 
-exports.findAll = (req, res) => {
+exports.findAll = (req, res) => { 
     // const title = req.query.title;
     // var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
 
