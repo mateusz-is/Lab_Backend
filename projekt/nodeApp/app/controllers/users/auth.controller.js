@@ -1,5 +1,7 @@
+const jwt = require('jsonwebtoken');
 const db = require("../../models");
 const bcrypt = require('bcrypt');
+const config = require('config');
 const user = db.user;
 
 
@@ -19,6 +21,10 @@ exports.authUser = async (req, res) => {
         return res.status(400).send('Incorrect email or password.');
     }
 
-    res.send(true);
-    
+    let userDetail = await user.findOne({ email: req.body.email }, { _id: 0, firstName: 1, lastName: 1, email: 1, permission: 1, isActive: 1 });
+    const token = jwt.sign({ _id: user._id }, 'PrivateKey');
+
+
+    res.send([{ userDetail, token: token  }]);
+
 };

@@ -12,7 +12,12 @@ module.exports = app => {
   const deleteCat = require("../controllers/categories/deleteCategory.controller.js")
   const registerUser = require('../controllers/users/register.controller.js');
   const authUser = require('../controllers/users/auth.controller.js');
+  const config = require('config');
 
+  if (!config.get('PrivateKey')) {
+    console.error('FATAL ERROR: PrivateKey is not defined.');
+    process.exit(1);
+  }
 
   app.get("/", (req, res) => {
     res.json({ message: "Home Page" });
