@@ -256,7 +256,7 @@
                 "description": "Register new account",
                 "parameters": [
                     {
-                        "name": "New category",
+                        "name": "New user",
                         "in": "body",
                         "description": "Create new account",
                         "schema": {
@@ -270,6 +270,35 @@
                 "responses": {
                     "200": {
                         "description": "New user is created",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "Login account",
+                "parameters": [
+                    {
+                        "name": "Login user",
+                        "in": "body",
+                        "description": "Login",
+                        "schema": {
+                            "$ref": "#/definitions/authUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
                         "schema": {
                             "$ref": "#/definitions/Users"
                         }
@@ -365,6 +394,21 @@
                     "type": "integer",
                     "uniqueItems": true
                 }
+            }
+        },
+        "authUser": {
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+         
             }
         }
     }

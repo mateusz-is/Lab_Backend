@@ -11,6 +11,8 @@ module.exports = app => {
   const deleteAd = require("../controllers/ads/deleteAd.controller.js")
   const deleteCat = require("../controllers/categories/deleteCategory.controller.js")
   const registerUser = require('../controllers/users/register.controller.js');
+  const authUser = require('../controllers/users/auth.controller.js');
+
 
   app.get("/", (req, res) => {
     res.json({ message: "Home Page" });
@@ -27,6 +29,7 @@ module.exports = app => {
   router.post("/category/create", category.create)
   router.get(`/category/all`, getAllCategory.findAll)
   router.post("/user/register", registerUser.registerUser)
+  router.post("/user/login", authUser.authUser)
   
 
   app.use("/api", router);
