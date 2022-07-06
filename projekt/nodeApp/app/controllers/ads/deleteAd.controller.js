@@ -3,19 +3,34 @@ const db = require("../../models");
 const Ad = db.ad;
 
 
-exports.deleteAd = (req, res) => {
-    const id = req.params.id
-    
-    Ad.deleteOne({_id: new mongodb.ObjectID(id.toString())})
-        .then(data => {
-            res.send({
-               data
+exports.deleteAd = async (req, res) => {
+    const id = req.params.id;
+
+    let adsData = await Ad.findById(id)
+    let authorId = adsData?.authorID
+
+    const permission = req.user?.tokenObject?.permission
+    const currentUserId = req.user?.tokenObject?.id
+
+    const deleteAd = () => {
+        Ad.deleteOne({ _id: new mongodb.ObjectID(id.toString()) })
+            .then(data => {
+                res.send({
+                    data
+                });
+            })
+            .catch(err => {
+                res.status(500).send("Some error occurred while retrieving ads.");
             });
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving ads."
-            });
-        });
+    }
+
+
+    if (permission === 'admin') {
+        deleteAd();
+    } else if (authorId === currentUserId) {
+        deleteAd()
+    } else {
+        return res.status(401).send("You need Admin permission to delete this Ad")
+    }
+
 };

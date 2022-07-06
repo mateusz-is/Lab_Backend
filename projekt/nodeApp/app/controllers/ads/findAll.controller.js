@@ -1,5 +1,4 @@
 const db = require("../../models");
-
 const Ad = db.ad;
 
 exports.findAll = (req, res) => { 
@@ -7,8 +6,8 @@ exports.findAll = (req, res) => {
     // var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
 
     const adId = req.query.id
-
-    Ad.find({ id: adId })
+ 
+        Ad.find({ id: adId })
         .then(data => {
             res.send(data);
         })
@@ -18,4 +17,6 @@ exports.findAll = (req, res) => {
                     err.message || "Some error occurred while retrieving ads."
             });
         });
+ 
+   
 };

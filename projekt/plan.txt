@@ -1,8 +1,8 @@
 Aplikacja będzie prostą tablicą ogłoszeń, api zostanie przygotowane w NodeJs, oraz front w React. Backend z frontem będzie komunikował się po Api.
-1. Wdrożenie (POST) endpointu do rejestracji uzytkowników 
-2. Wdrożenie (POST) endpointu do logowania uzytkowników 
+(Gotowe) 1. Wdrożenie (POST) endpointu do rejestracji uzytkowników 
+(Gotowe) 2. Wdrożenie (POST) endpointu do logowania uzytkowników 
 3. Wdrożenie poziomów uprawnień (Administrator, użytkownik).
-4. Wdrożenie autentykacji na podstawie tokenu. 
+(Gotowe) 4. Wdrożenie autentykacji na podstawie tokenu. 
 (Gotowe) 5. Wdrożenie endpointu (POST) do dodawania ogłoszeń. 
 6. Wdrożenie endpointu (GET) do wyświetlania ogłoszeń.
     (Gotowe) a. Wyświetlanie wszystkich ogłoszeń.

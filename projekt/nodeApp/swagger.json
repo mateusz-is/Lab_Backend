@@ -12,7 +12,8 @@
     "host": "54.37.138.253:8020",
     "basePath": "/api",
     "schemes": [
-        "http"
+        "http",
+        "https"
     ],
     "consumes": [
         "application/json"
@@ -23,18 +24,14 @@
     "securityDefinitions": {
         "bearerAuth": {
             "type": "apiKey",
-            "name": "Authorization",
             "scheme": "bearer",
+            "name": "x-access-token",
+            "bearerFormat": "JWT",
             "in": "header"
         }
     },
     "paths": {
         "/ads": {
-            "post":{
-                "security": {
-                    "BearerAuth": []
-                }
-            },
             "get": {
                 "tags": [
                     "Ads"
@@ -141,6 +138,11 @@
         },
         "/ads/delete/{id}": {
             "delete": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
                 "tags": [
                     "Ads"
                 ],
@@ -165,6 +167,11 @@
         },
         "/ad/create": {
             "post": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
                 "tags": [
                     "Ads"
                 ],
@@ -210,6 +217,11 @@
         },
         "/category/create": {
             "post": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
                 "tags": [
                     "Categories"
                 ],
@@ -239,6 +251,11 @@
         },
         "/category/delete/{id}": {
             "delete": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
                 "tags": [
                     "Categories"
                 ],
@@ -319,7 +336,6 @@
                 }
             }
         }
-
     },
     "definitions": {
         "Ads": {
@@ -397,9 +413,6 @@
                 "password": {
                     "type": "string"
                 },
-                "token": {
-                    "type": "string"
-                },
                 "permission": {
                     "type": "string"
                 },
@@ -424,7 +437,6 @@
                 "password": {
                     "type": "string"
                 }
-         
             }
         }
     }

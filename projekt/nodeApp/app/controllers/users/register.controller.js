@@ -23,7 +23,6 @@ exports.registerUser = async (req, res) => {
             email: req.body.email,
             password: req.body.password,
             permission: req.body.permission,
-            token: req.body.token,
             isActive: req.body.isActive
         });
         const salt = await bcrypt.genSalt(10);

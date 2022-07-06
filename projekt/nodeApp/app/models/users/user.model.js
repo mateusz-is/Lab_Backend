@@ -21,9 +21,6 @@ module.exports = mongoose => {
             permission: {
                 type: String,
             },  
-            token: {
-                type: String,
-            },
             isActive: {
                 type: Boolean,
                 required: true

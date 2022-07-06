@@ -4,7 +4,7 @@ module.exports = mongoose => {
         title: String,
         description: String,
         price: Number,
-        authorID: Number,
+        authorID: String,
         categoryID: Number,
         published: Boolean
       },
