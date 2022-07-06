@@ -13,15 +13,16 @@ module.exports = app => {
   const deleteCat = require("../controllers/categories/deleteCategory.controller.js")
   const registerUser = require('../controllers/users/register.controller.js');
   const authUser = require('../controllers/users/auth.controller.js');
- 
-
- 
+  const userList = require('../controllers/users/userList.controller.js');
+  const deleteUser = require('../controllers/users/deleteUser.controller.js');
+  const updateUser = require('../controllers/users/editUser.controller.js');
+  
 
   app.get("/", (req, res) => {
     res.json({ message: "Home Page" });
   });
 
-  router.post("/ad/create", auth,  ad.create);
+  router.post("/ad/create", auth, ad.create);
   router.get("/ads", getAll.findAll);
   router.get("/ads/category/:id", findByCat.findByCategory);
   router.get("/ads/author/:id", findByAuthor.findByAuthor);
@@ -33,7 +34,9 @@ module.exports = app => {
   router.get(`/category/all`, getAllCategory.findAll)
   router.post("/user/register", registerUser.registerUser)
   router.post("/user/login", authUser.authUser)
-  
+  router.get("/users/list", auth, userList.userList)
+  router.delete("/user/delete/:id", auth, deleteUser.deleteUser)
+  router.put("/user/update/", auth, updateUser.updateUser)
 
   app.use("/api", router);
 };

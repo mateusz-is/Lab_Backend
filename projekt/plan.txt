@@ -1,7 +1,7 @@
 Aplikacja będzie prostą tablicą ogłoszeń, api zostanie przygotowane w NodeJs, oraz front w React. Backend z frontem będzie komunikował się po Api.
 (Gotowe) 1. Wdrożenie (POST) endpointu do rejestracji uzytkowników 
 (Gotowe) 2. Wdrożenie (POST) endpointu do logowania uzytkowników 
-3. Wdrożenie poziomów uprawnień (Administrator, użytkownik).
+(Gotowe) 3. Wdrożenie poziomów uprawnień (Administrator, użytkownik).
 (Gotowe) 4. Wdrożenie autentykacji na podstawie tokenu. 
 (Gotowe) 5. Wdrożenie endpointu (POST) do dodawania ogłoszeń. 
 6. Wdrożenie endpointu (GET) do wyświetlania ogłoszeń.
@@ -14,7 +14,7 @@ Aplikacja będzie prostą tablicą ogłoszeń, api zostanie przygotowane w NodeJ
 (Gotowe) 7. Wdrożenie endpointu (DELETE) do usuwania wpisów
 (Gotowe) 8. Wdrozenie endpointu (GET) do wyświetlania kategorii
     (Gotowe) b. wyświetlanie tylko opublikowanych kategorii
-9. Wdrożenie endpoint (DELETE) do usuwania kategorii
+ (Gotowe) 9. Wdrożenie endpoint (DELETE) do usuwania kategorii
 10. Wdrożenie endpointu (PUT) do edycji ogloszeń
     a. Edycja ogłoszeń tylko po id autora
     b. Edycja wszystkich wpisów
@@ -26,6 +26,8 @@ Aplikacja będzie prostą tablicą ogłoszeń, api zostanie przygotowane w NodeJ
 15. Wdrożenie endpointu (DELTE) do usuwania uzytkonków.
 (W trakcie) 16. Stworzenie dokumentacji do api wykorzystując do tego program swagger 
 17. Przygotowanie środowiska uruchomieniowego w Docker. Przygotowanie pliku docker-compose i DockerFile
+18. Wdrożenie endpointu (DELTE) do edycji uprawnień uzytkonków.
+
 
 Tabele w bazie danych:
     Ogloszenia, 

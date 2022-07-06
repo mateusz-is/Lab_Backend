@@ -1,5 +1,4 @@
-const config = require('config');
-const jwt = require('jsonwebtoken');
+
 const db = require("../../models");
 const bcrypt = require('bcrypt');
 const user = db.user;
@@ -28,9 +27,6 @@ exports.registerUser = async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         newUser.password = await bcrypt.hash(newUser.password, salt);
         await newUser.save();
-        const token = jwt.sign({ _id: user._id }, config.get('PrivateKey'), {
-            expiresIn: "2h",
-        });
-        res.header('x-auth-token', token).send(newUser);
+        await res.status(200).send(newUser);
     }
 };
