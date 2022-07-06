@@ -15,7 +15,7 @@ exports.create = (req, res) => {
   });
 
 
-  if (permission === 'string') {
+  if (permission === 'admin') {
     if (!req.body.title) {
       res.status(400).send({ message: "Content can not be empty!" });
       return;

@@ -24,11 +24,10 @@ exports.deleteAd = async (req, res) => {
             });
     }
 
-
     if (permission === 'admin') {
-        deleteAd();
+       return deleteAd();
     } else if (authorId === currentUserId) {
-        deleteAd()
+        return deleteAd()
     } else {
         return res.status(401).send("You need Admin permission to delete this Ad")
     }

@@ -4,12 +4,15 @@ const checkToken = require("../auth/auth.controller")
 
 
 exports.create = (req, res) => {
+  const permission = req.user?.tokenObject?.permission
 
   const category = new Cat({
     name: req.body.name,
     published: req.body.published
   })
 
+
+  if (permission === 'admin') {
     if (!req.body.name) {
       res.status(400).send({ message: "Content can not be empty!" });
       return;
@@ -26,5 +29,8 @@ exports.create = (req, res) => {
             err.message || "Some error occurred while creating new ad."
         });
       });
- 
+  } else {
+    return res.status(401).send("You need Admin permission to create new Ad")
+  }
+
 };
