@@ -3,7 +3,7 @@
     "info": {
         "version": "1.0.0",
         "title": "Tablica ogłoszeń",
-        "description": "Dokumentacja do projektu",
+        "description": "W ramach projektu stowrzyłem api do platformy reklamowej/ogłoszeniowej. Api umożliwia wyświetlanie listy reklam, edycję/usuwanie reklam, przypisywanie reklam do odpowiednich kategorii oraz wyświetlanie reklam na podstawie kategorii lub innych parametrów. `Właściciel reklamy` i `admin` posiadają uprawnienia do edycji lub usuwania. Właściciel reklamy może edytować tylko swoje wpisy, a admin wszystko. Kategorie są mogą być obsługiwane tylko przez `admina`, każdy może je jednak wyświetlić. Api pozwala także na rejestrację nowych użytkowników oraz logowanie. Logowanie odbywa się za pomocą tokenu Bearer, w którym zaszyfrowane są informację np. poziomach dostępu. W programie zdefiniowałem trzy poziomy dostępu `admin`, `editor` i `user`. Admin ma dostęp do edycji wszystkiego z kolei edytor może dodawać nowe wpisy. Tylko admin może edytować poziomy uprawnień oraz wyświetlać listę wszystkich użytkowników.",
         "license": {
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
