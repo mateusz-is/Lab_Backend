@@ -21,7 +21,7 @@ exports.registerUser = async (req, res) => {
             lastName: req.body.lastName,
             email: req.body.email,
             password: req.body.password,
-            permission: req.body.permission,
+            permission: "user",
             isActive: req.body.isActive
         });
         const salt = await bcrypt.genSalt(10);

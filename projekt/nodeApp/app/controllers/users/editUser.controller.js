@@ -17,7 +17,6 @@ exports.updateUser = async (req, res) => {
         lastName: req.body.lastName,
         email: req.body.email,
         password: req.body.password,
-        permission: req.body.permission,
         isActive: req.body.isActive
     }
 
