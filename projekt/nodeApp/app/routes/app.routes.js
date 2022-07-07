@@ -17,6 +17,7 @@ module.exports = app => {
   const deleteUser = require('../controllers/users/deleteUser.controller.js');
   const updateUser = require('../controllers/users/editUser.controller.js');
   const editCategory = require("../controllers/categories/editCategory.controller.js")
+  const updateAd = require("../controllers/ads/editAd.controller.js");
 
   app.get("/", (req, res) => {
     res.json({ message: "Home Page" });
@@ -38,7 +39,10 @@ module.exports = app => {
   router.delete("/user/delete/:id", auth, deleteUser.deleteUser)
   router.put("/user/update/", auth, updateUser.updateUser)
   router.put("/category/update/", auth, editCategory.editCategory)
+  router.put("/ads/update/", auth, updateAd.updateAd)
 
+
+  
   app.use("/api", router);
 };
 

@@ -136,6 +136,40 @@
                 }
             }
         },
+        "/ads/update": {
+            "put": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "Ads"
+                ],
+                "description": "Edit Ads detail",
+                "parameters": [
+                    {
+                        "name": "Edit Ad",
+                        "in": "body",
+                        "description": "Edit details",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateAds"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ad details updated!",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateAds"
+                        }
+                    }
+                }
+            }
+        },
         "/ads/delete/{id}": {
             "delete": {
                 "security": [
@@ -491,6 +525,33 @@
                 },
                 "updatedAt": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                }
+            }
+        },
+        "UpdateAds": {
+            "required": [
+                "title",
+                "_id"
+            ],
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "categoryID": {
+                    "type": "number"
+                },
+                "published": {
+                    "type": "boolean"
                 },
                 "id": {
                     "type": "integer",
