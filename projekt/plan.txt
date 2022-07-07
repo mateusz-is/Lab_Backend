@@ -10,6 +10,7 @@ Aplikacja będzie prostą tablicą ogłoszeń, api zostanie przygotowane w NodeJ
     (Gotowe) c. Wyświetlanie wszystkich opublikowanych ogłoszeń
     (Gotowe) d. Wyświetlanie wszystkich ogłoszeń po kategorii
     (Gotowe) e. Wyświetlanie ogłoszeń po id autora
+    (Gotowe) c. Wdrożenie stronnicowania
 (Gotowe) 7. Wdrożenie endpointu (DELETE) do usuwania wpisów
 (Gotowe) 8. Wdrozenie endpointu (GET) do wyświetlania kategorii
     (Gotowe) b. wyświetlanie tylko opublikowanych kategorii

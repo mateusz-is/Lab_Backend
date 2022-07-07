@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+./nodeApp/node_modules
+./contactForm/node_modules
