@@ -47,6 +47,26 @@
                 "tags": [
                     "Ads"
                 ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": "1"
+                        },
+                        "description": "limit"
+                    },
+                    {
+                        "in": "query",
+                        "name": "skip",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": "1"
+                        },
+                        "description": "skip"
+                    }
+                ],
                 "summary": "Pobierz wszystkie reklamy z bazy danych",
                 "description": "Endpoint nie ma żadnych ograniczneń, wyświetlane są wszystkie reklamy.",
                 "responses": {
