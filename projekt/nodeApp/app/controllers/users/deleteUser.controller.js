@@ -18,9 +18,14 @@ exports.deleteUser = async (req, res) => {
             });
     }
 
-    if (permission === 'admin') return deleteOne();
+    if (permission === 'admin') {
+        deleteOne();
+        return;
+    } else {
+        res.status(401).send("You need Admin permission to delete User")
+        return;
+    }
 
-    res.status(401).send("You need Admin permission to delete User")
 
 
 };

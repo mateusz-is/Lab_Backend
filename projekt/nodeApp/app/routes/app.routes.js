@@ -1,4 +1,5 @@
 const auth = require("../controllers/auth/auth.controller.js");
+
 module.exports = app => {
   var router = require("express").Router();
   const ad = require("../controllers/ads/createAd.controller.js");
@@ -42,7 +43,7 @@ module.exports = app => {
   router.put("/ads/update/", auth, updateAd.updateAd)
 
 
-  
+
   app.use("/api", router);
 };
 

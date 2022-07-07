@@ -1,5 +1,5 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.0",
     "info": {
         "version": "1.0.0",
         "title": "Tablica ogłoszeń",
@@ -9,11 +9,20 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "54.37.138.253:8020",
-    "basePath": "/api",
-    "schemes": [
-        "http",
-        "https"
+    "servers": [
+        {
+            "url": "http://54.37.138.253:{port}/api",
+            "description": "The production API server",
+            "variables": {
+                "port": {
+                    "enum": [
+                        "8020",
+                        "8022"
+                    ],
+                    "default": "8020"
+                }
+            }
+        }
     ],
     "consumes": [
         "application/json"
@@ -21,13 +30,15 @@
     "produces": [
         "application/json"
     ],
-    "securityDefinitions": {
-        "bearerAuth": {
-            "type": "apiKey",
-            "scheme": "bearer",
-            "name": "x-access-token",
-            "bearerFormat": "JWT",
-            "in": "header"
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "apiKey",
+                "scheme": "bearer",
+                "name": "x-access-token",
+                "bearerFormat": "JWT",
+                "in": "header"
+            }
         }
     },
     "paths": {
@@ -147,19 +158,16 @@
                     "Ads"
                 ],
                 "description": "Edit Ads detail",
-                "parameters": [
-                    {
-                        "name": "Edit Ad",
-                        "in": "body",
-                        "description": "Edit details",
-                        "schema": {
-                            "$ref": "#/definitions/UpdateAds"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/UpdateAds"
+                            }
                         }
                     }
-                ],
-                "produces": [
-                    "application/json"
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Ad details updated!",
@@ -210,19 +218,16 @@
                     "Ads"
                 ],
                 "description": "Create new Ad",
-                "parameters": [
-                    {
-                        "name": "New Ad",
-                        "in": "body",
-                        "description": "Create your first ad",
-                        "schema": {
-                            "$ref": "#/definitions/Ads"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Ads"
+                            }
                         }
                     }
-                ],
-                "produces": [
-                    "application/json"
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "New Ad is created",
@@ -260,16 +265,16 @@
                     "Categories"
                 ],
                 "description": "Create new Category",
-                "parameters": [
-                    {
-                        "name": "New category",
-                        "in": "body",
-                        "description": "Create your Category",
-                        "schema": {
-                            "$ref": "#/definitions/Category"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Category"
+                            }
                         }
                     }
-                ],
+                },
                 "produces": [
                     "application/json"
                 ],
@@ -294,19 +299,16 @@
                     "Categories"
                 ],
                 "description": "Edit Category detail",
-                "parameters": [
-                    {
-                        "name": "Edit category",
-                        "in": "body",
-                        "description": "Edit details",
-                        "schema": {
-                            "$ref": "#/definitions/Category"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Category"
+                            }
                         }
                     }
-                ],
-                "produces": [
-                    "application/json"
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Category details updated!",
@@ -352,19 +354,16 @@
                     "Users"
                 ],
                 "description": "Register new account",
-                "parameters": [
-                    {
-                        "name": "New user",
-                        "in": "body",
-                        "description": "Create new account",
-                        "schema": {
-                            "$ref": "#/definitions/Users"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Users"
+                            }
                         }
                     }
-                ],
-                "produces": [
-                    "application/json"
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "New user is created",
@@ -386,19 +385,16 @@
                     "Users"
                 ],
                 "description": "Edit user detail",
-                "parameters": [
-                    {
-                        "name": "Edit user",
-                        "in": "body",
-                        "description": "Edit details",
-                        "schema": {
-                            "$ref": "#/definitions/Users"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Users"
+                            }
                         }
                     }
-                ],
-                "produces": [
-                    "application/json"
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "User details updated!",
@@ -415,19 +411,16 @@
                     "Users"
                 ],
                 "description": "Login account",
-                "parameters": [
-                    {
-                        "name": "Login user",
-                        "in": "body",
-                        "description": "Login",
-                        "schema": {
-                            "$ref": "#/definitions/authUser"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/authUser"
+                            }
                         }
                     }
-                ],
-                "produces": [
-                    "application/json"
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -489,6 +482,63 @@
                         "description": "Success",
                         "schema": {
                             "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            }
+        },
+        "/send/message/": {
+            "post": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/form"
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Contact Form"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/form"
+                        }
+                    }
+                }
+            }
+        },
+        "/logged/message/list/": {
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+       
+                "tags": [
+                    "Contact Form"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/form"
                         }
                     }
                 }
@@ -607,6 +657,36 @@
                 "id": {
                     "type": "integer",
                     "uniqueItems": true
+                }
+            }
+        },
+        "form": {
+            "required": [
+                "firstName",
+                "lastName",
+                "phone",
+                "email",
+                "description",
+                "ownerId"
+            ],
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "ownerId": {
+                    "type": "string"
                 }
             }
         },

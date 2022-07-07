@@ -10,7 +10,7 @@ const app = express();
 
 
 var corsOptions = {
-  origin: "http://localhost:8021"
+  origin: "http://54.37.138.253:8020"
 };
 
 app.use(cors(corsOptions));
