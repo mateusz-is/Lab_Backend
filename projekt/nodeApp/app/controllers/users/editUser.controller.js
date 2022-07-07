@@ -36,7 +36,7 @@ exports.updateUser = async (req, res) => {
         }
 
         if (emailExist?.email !== undefined) {
-            if (emailExist?.email !== getUser?.email) return res.status(400).send('That user already exisits!');
+            if (emailExist?.email !== getUser?.email) return await res.status(400).send('That user already exisits!');
             await updateUser()
         } else {
             await updateUser()

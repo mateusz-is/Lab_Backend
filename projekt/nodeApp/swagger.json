@@ -249,6 +249,40 @@
                 }
             }
         },
+        "/category/update": {
+            "put": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "Categories"
+                ],
+                "description": "Edit Category detail",
+                "parameters": [
+                    {
+                        "name": "Edit category",
+                        "in": "body",
+                        "description": "Edit details",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Category details updated!",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        }
+                    }
+                }
+            }
+        },
         "/category/delete/{id}": {
             "delete": {
                 "security": [

@@ -16,7 +16,7 @@ module.exports = app => {
   const userList = require('../controllers/users/userList.controller.js');
   const deleteUser = require('../controllers/users/deleteUser.controller.js');
   const updateUser = require('../controllers/users/editUser.controller.js');
-  
+  const editCategory = require("../controllers/categories/editCategory.controller.js")
 
   app.get("/", (req, res) => {
     res.json({ message: "Home Page" });
@@ -37,6 +37,7 @@ module.exports = app => {
   router.get("/users/list", auth, userList.userList)
   router.delete("/user/delete/:id", auth, deleteUser.deleteUser)
   router.put("/user/update/", auth, updateUser.updateUser)
+  router.put("/category/update/", auth, editCategory.editCategory)
 
   app.use("/api", router);
 };
