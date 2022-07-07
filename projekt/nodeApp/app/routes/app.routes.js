@@ -19,6 +19,7 @@ module.exports = app => {
   const updateUser = require('../controllers/users/editUser.controller.js');
   const editCategory = require("../controllers/categories/editCategory.controller.js")
   const updateAd = require("../controllers/ads/editAd.controller.js");
+  const changePermission = require('../controllers/users/permissions.controller.js');
 
   app.get("/", (req, res) => {
     res.json({ message: "Home Page" });
@@ -39,6 +40,7 @@ module.exports = app => {
   router.get("/users/list", auth, userList.userList)
   router.delete("/user/delete/:id", auth, deleteUser.deleteUser)
   router.put("/user/update/", auth, updateUser.updateUser)
+  router.put("/user/update/permission", auth, changePermission.changePermission)
   router.put("/category/update/", auth, editCategory.editCategory)
   router.put("/ads/update/", auth, updateAd.updateAd)
 

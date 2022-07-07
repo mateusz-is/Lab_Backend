@@ -418,13 +418,45 @@
                 }
             }
         },
+        "/user/update/permission": {
+            "put": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Edytuj uprawnienia",
+                "description": "Endpoint wymaga, aby użytkownik był zalogowany. Aby dokonać edycji wymagane są uprawnienia administratora.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Permission"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User details updated!",
+                        "schema": {
+                            "$ref": "#/definitions/Permission"
+                        }
+                    }
+                }
+            }
+        },
         "/user/login": {
             "post": {
                 "tags": [
                     "Users"
                 ],
                 "summary": "Zaloguj się",
-                "description": "Endpoint nie posiada ograniczeń. Po zalogowaniu otrzymujemy token, który należy przesyłać z nagłówku x-access-token.",
+                "description": "Endpoint nie posiada ograniczeń. Po zalogowaniu otrzymujemy token, który należy przesyłać z nagłówku x-access-token. Przykładowe dane: Uprawnienia `admin` Login: `admin@admin.pl` Hasło: `admin`. Uprawnienia `edytor` Login: `editor@editor.pl` Hasło: `editor` ",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -675,6 +707,20 @@
                 },
                 "id": {
                     "type": "integer",
+                    "uniqueItems": true
+                }
+            }
+        },
+        "Permission": {
+            "required": [
+                "permission"
+            ],
+            "properties": {
+                "permission": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string",
                     "uniqueItems": true
                 }
             }
