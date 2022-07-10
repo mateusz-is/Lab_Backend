@@ -32,7 +32,12 @@ build/
 ### VS Code ###
 .vscode/
 
-projekt/nodeApp/node_modules/*
-projekt/nodeApp/node_modules
+projekt/ads/node_modules/*
+projekt/ads/node_modules
 projekt/contactForm/node_modules/*
 projekt/contactForm/node_modules
+projekt/users/node_modules
+projekt/users/node_modules/*
+projekt/users/.env
+projekt/contactForm/.env
+projekt/ads/.env
