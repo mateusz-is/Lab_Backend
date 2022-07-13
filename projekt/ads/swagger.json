@@ -68,7 +68,7 @@
                         "description": "skip"
                     }
                 ],
-                "summary": "Pobierz wszystkie reklamy z bazy danych",
+                "summary": "Pobierz wszystkie reklamy z bazy danych :8020",
                 "description": "Endpoint nie ma żadnych ograniczneń, wyświetlane są wszystkie reklamy.",
                 "responses": {
                     "200": {
@@ -85,7 +85,7 @@
                 "tags": [
                     "Ads"
                 ],
-                "summary": "Pobierz wszystkie reklamy z bazy danych według wskazanego ID",
+                "summary": "Pobierz wszystkie reklamy z bazy danych według wskazanego ID :8020",
                 "description": "Endpoint nie ma żadnych ograniczneń.",
                 "parameters": [
                     {
@@ -110,7 +110,7 @@
                 "tags": [
                     "Ads"
                 ],
-                "summary": "Pobierz wszystkie opublikowane reklamy.",
+                "summary": "Pobierz wszystkie opublikowane reklamy. :8020",
                 "description": "Endpoint nie ma żadnych ograniczneń.",
                 "responses": {
                     "200": {
@@ -127,7 +127,7 @@
                 "tags": [
                     "Ads"
                 ],
-                "summary": "Pobierz wszystkie reklamy według wskazanej kategorii.",
+                "summary": "Pobierz wszystkie reklamy według wskazanej kategorii. :8020",
                 "description": "Endpoint nie ma żadnych ograniczneń.",
                 "parameters": [
                     {
@@ -152,7 +152,7 @@
                 "tags": [
                     "Ads"
                 ],
-                "summary": "Pobierz wszystkie reklamy dla wybranego autora.",
+                "summary": "Pobierz wszystkie reklamy dla wybranego autora. :8020",
                 "description": "Endpoint nie ma żadnych ograniczneń.",
                 "parameters": [
                     {
@@ -182,7 +182,7 @@
                 "tags": [
                     "Ads"
                 ],
-                "summary": "Zaktualizuj wybraną reklamę.",
+                "summary": "Zaktualizuj wybraną reklamę. :8020",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany. Jeśli użytkownik posiada uprawnienia `admin` to może edytować dowolny wpis. Jeśli użytkownik posiada uprawnienia `editor` lub inne to może edytować tylko własne wpisy. W celu edycji reklamy należy podać jej `ID`.",
                 "requestBody": {
                     "required": true,
@@ -214,7 +214,7 @@
                 "tags": [
                     "Ads"
                 ],
-                "summary": "Usuń wybraną reklamę.",
+                "summary": "Usuń wybraną reklamę. :8020",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany. Jeśli użytkownik posiada uprawnienia `admin` to może usuwać dowolny wpis. Jeśli użytkownik posiada uprawnienia `editor` lub inne to może usuwać tylko własne wpisy. W celu usunięcia reklamy należy podać jej `ID`.",
                 "parameters": [
                     {
@@ -244,7 +244,7 @@
                 "tags": [
                     "Ads"
                 ],
-                "summary": "Utwórz reklamę.",
+                "summary": "Utwórz reklamę. :8020",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany. W celu dodania reklamy użytkownik musi posiadać uprawnienia `admin` lub `editor` inne nie są akceptowane. Pole authorId wypełnia się automatycznie `id` użytkownika pobierane jest z przekazanego tokenu.",
                 "requestBody": {
                     "required": true,
@@ -271,7 +271,7 @@
                 "tags": [
                     "Categories"
                 ],
-                "summary": "Pobierz wszystkie kategorie.",
+                "summary": "Pobierz wszystkie kategorie. :8020",
                 "description": "Endpoint nie ma żadnych ograniczneń.",
                 "responses": {
                     "200": {
@@ -293,7 +293,7 @@
                 "tags": [
                     "Categories"
                 ],
-                "summary": "Utwórz kategorię.",
+                "summary": "Utwórz kategorię. :8020",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany. W celu dodania kategorii użytkownik musi posiadać uprawnienia `admin` inne nie są akceptowane. ",
                 "requestBody": {
                     "required": true,
@@ -328,7 +328,7 @@
                 "tags": [
                     "Categories"
                 ],
-                "summary": "Edytuj kategorię.",
+                "summary": "Edytuj kategorię. :8020",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany. W celu edytowania kategorii użytkownik musi posiadać uprawnienia `admin` inne nie są akceptowane. ",
                 "requestBody": {
                     "required": true,
@@ -368,7 +368,7 @@
                         "type": "Number"
                     }
                 ],
-                "summary": "Usuń kategorię.",
+                "summary": "Usuń kategorię. :8020",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany. W celu usunięcia kategorii użytkownik musi posiadać uprawnienia `admin` inne nie są akceptowane. W celu usunięcia kategori podajemy jej numer `ID` ",
                 "responses": {
                     "200": {
@@ -385,7 +385,7 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Zarejestruj nowego użytkownika",
+                "summary": "Zarejestruj nowego użytkownika :8023",
                 "description": "Endpoint nie posiada ograniczeń. Uprawnienia jakie za każdym razem otrzymuje nowy użytkownik to `user`. Nie ma możliwości ich zmiany podczas rejestracji.",
                 "requestBody": {
                     "required": true,
@@ -417,7 +417,7 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Edytuj  użytkownika",
+                "summary": "Edytuj  użytkownika :8023",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany. Konto z uprawnieniami `admin` pozwala na edycję każdego profilu. Konta z pozostałymi uprawnienami mogą edytować tylko własne profile. Dodane jest też zabezpiecznie sprawdzajace czy użytkownik nie zmienia adresu email na taki, który istnieje już w bazie.",
                 "requestBody": {
                     "required": true,
@@ -449,7 +449,7 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Edytuj uprawnienia",
+                "summary": "Edytuj uprawnienia :8023",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany. Aby dokonać edycji wymagane są uprawnienia administratora.",
                 "requestBody": {
                     "required": true,
@@ -476,7 +476,7 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Zaloguj się",
+                "summary": "Zaloguj się :8023",
                 "description": "Endpoint nie posiada ograniczeń. Po zalogowaniu otrzymujemy token, który należy przesyłać z nagłówku x-access-token. Przykładowe dane: Uprawnienia `admin` Login: `admin@admin.pl` Hasło: `admin`. Uprawnienia `edytor` Login: `editor@editor.pl` Hasło: `editor` ",
                 "requestBody": {
                     "required": true,
@@ -508,7 +508,7 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Lista wszystkich użytkowników",
+                "summary": "Lista wszystkich użytkowników :8023",
                 "description": "Endpoint posiada ograniczenia. Wymagane są uprawnienia `admin`.",
                 "produces": [
                     "application/json"
@@ -541,7 +541,7 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Usuń użytkownika",
+                "summary": "Usuń użytkownika :8023",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany. Użytkownik z uprawnieniami `admin` może usunąć każde konto, z kolei pozostali użytkownicy mogą usunać tylko własne profile.",
                 "produces": [
                     "application/json"
@@ -563,7 +563,7 @@
                         "bearerAuth": []
                     }
                 ],
-                "summary": "Wyślij wiadomość",
+                "summary": "Wyślij wiadomość :8022",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany.",
                 "requestBody": {
                     "required": true,
@@ -598,7 +598,7 @@
                         "bearerAuth": []
                     }
                 ],
-                "summary": "Zobacz swoje wiadomości",
+                "summary": "Zobacz swoje wiadomości :8022",
                 "description": "Endpoint wymaga, aby użytkownik był zalogowany. Użytkownik widzi tylko swoje wiadomości.",
                 "tags": [
                     "Contact Form"
